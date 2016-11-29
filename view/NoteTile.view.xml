@@ -1,0 +1,54 @@
+<mvc:View
+		controllerName="medicare.controller.Note"
+		xmlns="sap.m"   xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout"  xmlns:uxap="sap.uxap"
+>
+	<Page
+			id="page"
+			navButtonPress="onNavBack"
+			showFooter="true"
+			showNavButton="{/showNavButton}"
+			enableScrolling="false"
+			title="Note: {/noteTitle}">
+
+		<content>
+
+			<uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" showTitleInHeaderContent="false"
+								   showHeaderContent="true">
+				<uxap:headerTitle>
+					<uxap:ObjectPageHeader isObjectIconAlwaysVisible="false"
+										   isObjectTitleAlwaysVisible="false"
+										   showPlaceholder="false">
+					</uxap:ObjectPageHeader>
+				</uxap:headerTitle>
+
+				<uxap:headerContent>
+					<layout:VerticalLayout>
+						<ObjectStatus text="Title: {/noteTitle}"/>
+					</layout:VerticalLayout>
+				</uxap:headerContent>
+
+				<uxap:sections>
+					<uxap:ObjectPageSection id="notes" >
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection id="notesSub" title="To Do" class="toggle-all todoApp todo-list">
+								<mvc:JSView viewName="toDoListView.Todo"></mvc:JSView>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+				</uxap:sections>
+			</uxap:ObjectPageLayout>
+		</content>
+
+		<footer>
+			<OverflowToolbar  id="otbFooter">
+				<OverflowToolbarButton visible="{/showFooter}" text="Notify" tooltip="Send Notification" press="onOpenNotificationPopover" icon="../images/an_icon.png"/>
+			</OverflowToolbar>
+		</footer>
+
+	</Page>
+
+
+</mvc:View>
+
+
+

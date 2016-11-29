@@ -1,0 +1,18 @@
+<mvc:View
+		controllerName="medicare.controller.ClientApp"
+		xmlns:mvc="sap.ui.core.mvc"
+		displayBlock="true"
+		busy="{appView>/busy}"
+		busyIndicatorDelay="{appView>/delay}"
+		xmlns="sap.m">
+
+	<SplitApp visible="true"  id="idClientAppControl" >
+		 <masterPages>
+			<mvc:XMLView viewName="medicare.view.ClientMaster" />
+		</masterPages>
+		<detailPages>
+		 	<mvc:XMLView viewName="medicare.view.DetailNoObjectsAvailable" />
+		</detailPages>
+	</SplitApp>
+	
+</mvc:View>

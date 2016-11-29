@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Popover
+		id="addNotePopover"
+		title="{Name}"
+		placement="Left" >
+		
+		<content>
+			<Input
+				id="noteTitleInput"
+				type="Text"
+				placeholder="Enter Title ..."
+				valueStateText="Title must not be empty!"
+				change="onInputEnter"
+			 />		
+		</content>
+		<endButton>
+			<Button id="addNoteBtn" text="Add Note" press="onAddNote" />
+		</endButton>
+	</Popover>
+</core:FragmentDefinition>

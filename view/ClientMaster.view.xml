@@ -1,0 +1,75 @@
+<mvc:View
+        controllerName="medicare.controller.ClientMaster"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns="sap.m">
+
+    <Page
+            id="page"
+            title="{i18n>clientMasterTitle}"
+            navButtonPress="onNavBack"
+            showFooter="true"
+            showNavButton="false">
+
+        <headerContent>
+				<OverflowToolbar id="otbHeader">
+					<ToolbarSpacer/>
+						<OverflowToolbarButton id="settingsId" press="onOpenSettingsePopover" icon="sap-icon://settings"/>
+						<OverflowToolbarButton text="Log out" press="onLogOut" tooltip="Log Out" icon="sap-icon://log"/>
+			</OverflowToolbar>
+        		
+        		 
+        </headerContent>
+
+
+        <content>
+			<PullToRefresh
+					id="pullToRefresh"
+					visible="{device>/support/touch}"
+					refresh="onRefresh" />
+			<List
+					id="clientList"
+					items="{
+						path: '/notes',
+						sorter: [{
+			                path: 'title', 
+			                descending: false
+			            }]
+					}"
+					busyIndicatorDelay="{masterView>/delay}"
+					noDataText="{masterView>/noDataText}"
+					mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}"
+					growing="true"
+					growingScrollToLoad="true"
+					updateFinished="onUpdateFinished"
+					selectionChange="onSelectionChange">
+				
+				<items>
+					<ObjectListItem
+							type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" 
+							press="onSelectionChange" 
+							title="{title}"
+							icon="sap-icon://notes"
+							number="{todosNo}">
+							
+							<attributes>
+								<ObjectAttribute
+									text="Active: {active}"/>
+								<ObjectAttribute text="Completed: {completed}" />
+							</attributes>
+							
+					</ObjectListItem>
+				</items>
+			</List>
+
+        </content>
+
+        <footer>
+            <OverflowToolbar id="otbFooter1">
+                <ToolbarSpacer/>
+                <!-- <OverflowToolbarButton text="Delete" tooltip="Delete" icon="sap-icon://delete"/> -->
+            </OverflowToolbar>
+        </footer>
+
+    </Page>
+
+</mvc:View>

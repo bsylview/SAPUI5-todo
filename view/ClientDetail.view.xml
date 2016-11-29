@@ -1,0 +1,33 @@
+<mvc:View
+		controllerName="medicare.controller.ClientDetail"
+		xmlns="sap.m"   xmlns:mvc="sap.ui.core.mvc"
+>
+	<Page
+			id="page"
+			showFooter="false"
+			showNavButton="{device>/system/phone}"
+			title="{i18n>clientDetailTitle}"
+			navButtonPress="onNavBack"
+		>
+	
+
+		<content>
+			
+			<HBox  alignContent="Center" alignItems="Center" justifyContent="Center">	
+				<mvc:JSView viewName="toDoListView.Todo"></mvc:JSView>
+			</HBox>
+		</content>
+
+		<footer>
+			<OverflowToolbar id="otbFooter">
+				
+			</OverflowToolbar>
+		</footer>
+
+	</Page>
+
+
+</mvc:View>
+
+
+

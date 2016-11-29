@@ -1,0 +1,78 @@
+<mvc:View
+		controllerName="medicare.controller.Master"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns="sap.m">
+
+	<Page	id="page"
+			title="{i18n>adminMasterTitle}"
+			showFooter="true"
+			>
+
+		<headerContent>
+		<OverflowToolbar id="otbHeader">
+			<ToolbarSpacer/>
+				<OverflowToolbarButton text="Log out" press="onLogOut" tooltip="Log Out" icon="sap-icon://log"/>
+			</OverflowToolbar>
+		</headerContent>
+
+		<!-- <subHeader>
+			<Bar id="headerBar">
+				<contentMiddle>
+					<SearchField
+							id="searchField"
+							showRefreshButton="{= !${device>/support/touch} }"
+							tooltip="{i18n>masterSearchTooltip}"
+							width="100%"
+							search="onSearch">
+					</SearchField>
+				</contentMiddle>
+			</Bar>
+		</subHeader> -->
+
+		<content>
+			<PullToRefresh
+					id="pullToRefresh"
+					visible="{device>/support/touch}"
+					refresh="onRefresh" />
+			<List
+					id="list"
+					items="{
+						path: '/items',
+						sorter: [{
+			                path: 'email', 
+			                descending: true
+			            }]
+					}"
+				
+					noDataText="{masterView>/noDataText}"
+					mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}"
+					growing="true"
+					growingScrollToLoad="true"				
+					selectionChange="onSelectionChange">
+				
+				<items>
+					<ObjectListItem
+						type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" 
+						press="onSelectionChange" 
+						title="{agentName}"
+						icon="{photoUrl}"
+						intro="{email}"
+						number="{notesNo}"
+					>
+						<!-- <attributes>
+							<ObjectAttribute text="Platform: {agentPlatform}" />
+						</attributes> -->
+					</ObjectListItem>
+				</items>
+			</List>
+		</content>
+
+		<footer>
+			<OverflowToolbar id="otbFooter1">
+				
+			</OverflowToolbar>
+		</footer>
+
+	</Page>
+
+</mvc:View>

@@ -1,0 +1,79 @@
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="adda48423258013e0c563cee" xml:lang="en" sap:schema-version="0000"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="adda48423258013e0c563cee_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="EmployeeSet" EntityType="adda48423258013e0c563cee.Employee" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="EmployeeReportingtoEmployee" Association="adda48423258013e0c563cee.EmployeeReportingtoEmployee" sap:creatable="true"
+					sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="EmployeeSet" Role="FromRole_EmployeeReportingtoEmployee"/>
+                    <End EntitySet="EmployeeSet" Role="ToRole_EmployeeReportingtoEmployee"/>
+                </AssociationSet>
+                <AssociationSet Name="EmployeeManagingEmployee" Association="adda48423258013e0c563cee.EmployeeManagingEmployee" sap:creatable="true"
+					sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="EmployeeSet" Role="FromRole_EmployeeManagingEmployee"/>
+                    <End EntitySet="EmployeeSet" Role="ToRole_EmployeeManagingEmployee"/>
+                </AssociationSet>
+            </EntityContainer>
+            <EntityType Name="Employee">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="FullName" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:calculated="{&quot;calculation&quot;:&quot;[{\&quot;label\&quot;:\&quot;+\&quot;,\&quot;name\&quot;:\&quot;plus\&quot;,\&quot;type\&quot;:\&quot;operator\&quot;,\&quot;left\&quot;:[{\&quot;label\&quot;:\&quot;+\&quot;,\&quot;name\&quot;:\&quot;plus\&quot;,\&quot;type\&quot;:\&quot;operator\&quot;,\&quot;left\&quot;:[{\&quot;label\&quot;:\&quot;PROPERTY\&quot;,\&quot;name\&quot;:\&quot;property\&quot;,\&quot;entityName\&quot;:\&quot;Employee\&quot;,\&quot;entityId\&quot;:\&quot;Employee\&quot;,\&quot;navPropName\&quot;:\&quot;\&quot;,\&quot;navPropId\&quot;:\&quot;\&quot;,\&quot;navPropMultiplicity\&quot;:null,\&quot;navPropOp\&quot;:null,\&quot;propertyName\&quot;:\&quot;FirstName\&quot;,\&quot;propertyId\&quot;:\&quot;FirstName\&quot;,\&quot;type\&quot;:\&quot;property\&quot;,\&quot;id\&quot;:2}],\&quot;right\&quot;:[{\&quot;label\&quot;:\&quot;VALUE\&quot;,\&quot;name\&quot;:\&quot;value\&quot;,\&quot;type\&quot;:\&quot;value\&quot;,\&quot;value\&quot;:\&quot; \&quot;,\&quot;id\&quot;:3}],\&quot;id\&quot;:1}],\&quot;right\&quot;:[{\&quot;label\&quot;:\&quot;PROPERTY\&quot;,\&quot;name\&quot;:\&quot;property\&quot;,\&quot;entityName\&quot;:\&quot;Employee\&quot;,\&quot;entityId\&quot;:\&quot;Employee\&quot;,\&quot;navPropName\&quot;:\&quot;\&quot;,\&quot;navPropId\&quot;:\&quot;\&quot;,\&quot;navPropMultiplicity\&quot;:null,\&quot;navPropOp\&quot;:null,\&quot;propertyName\&quot;:\&quot;LastName\&quot;,\&quot;propertyId\&quot;:\&quot;LastName\&quot;,\&quot;type\&quot;:\&quot;property\&quot;,\&quot;id\&quot;:4}],\&quot;id\&quot;:0}]&quot;,&quot;inputProperties&quot;:[{&quot;navPropId&quot;:&quot;&quot;,&quot;entityId&quot;:&quot;Employee&quot;,&quot;propertyId&quot;:&quot;FirstName&quot;,&quot;_id&quot;:{&quot;_bsontype&quot;:&quot;ObjectID&quot;,&quot;id&quot;:&quot;W1}\u0002{jeõ°41&quot;}},{&quot;navPropId&quot;:&quot;&quot;,&quot;entityId&quot;:&quot;Employee&quot;,&quot;propertyId&quot;:&quot;LastName&quot;,&quot;_id&quot;:{&quot;_bsontype&quot;:&quot;ObjectID&quot;,&quot;id&quot;:&quot;W1}\u0002{jeõ°40&quot;}}]}"
+					sap:label="FullName"/>
+                <Property Name="Gender" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Gender"/>
+                <Property Name="FirstName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="FirstName"/>
+                <Property Name="LastName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="LastName"/>
+                <Property Name="Position" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Position"/>
+                <Property Name="Picture" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Picture"/>
+                <Property Name="Country" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Country"/>
+                <Property Name="OfficeTelephone" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="OfficeTelephone"/>
+                <Property Name="EmployeeNumber" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="EmployeeNumber"/>
+                <Property Name="Email" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Email"/>
+                <Property Name="OrgUnit" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="OrgUnit"/>
+                <Property Name="hasmanager" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="hasmanager"/>
+                <Property Name="___FK_20ea4e2a5d5a67ec0bea638a" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="From.Employee"/>
+                <Property Name="___FK_4dd39a60fbe5b1260bea638a" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="From.Employee"/>
+                <Property Name="NbOfReports" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:calculated="{&quot;calculation&quot;:&quot;[{\&quot;label\&quot;:\&quot;PROPERTY\&quot;,\&quot;name\&quot;:\&quot;property\&quot;,\&quot;entityName\&quot;:\&quot;Employee\&quot;,\&quot;entityId\&quot;:\&quot;Employee\&quot;,\&quot;navPropName\&quot;:\&quot;Managing\&quot;,\&quot;navPropId\&quot;:\&quot;Managing\&quot;,\&quot;navPropMultiplicity\&quot;:true,\&quot;navPropOp\&quot;:\&quot;count\&quot;,\&quot;propertyName\&quot;:\&quot;ID\&quot;,\&quot;propertyId\&quot;:\&quot;ID\&quot;,\&quot;type\&quot;:\&quot;property\&quot;,\&quot;id\&quot;:0}]&quot;,&quot;inputProperties&quot;:[{&quot;navPropId&quot;:&quot;Managing&quot;,&quot;entityId&quot;:&quot;Employee&quot;,&quot;propertyId&quot;:&quot;ID&quot;,&quot;_id&quot;:{&quot;_bsontype&quot;:&quot;ObjectID&quot;,&quot;id&quot;:&quot;W'ÓKrA/Gõ&quot;}}]}"
+					sap:label="NbOfReports"/>
+                <NavigationProperty Name="Reportingto" Relationship="adda48423258013e0c563cee.EmployeeReportingtoEmployee"
+					FromRole="FromRole_EmployeeReportingtoEmployee" ToRole="ToRole_EmployeeReportingtoEmployee"/>
+                <NavigationProperty Name="Managing" Relationship="adda48423258013e0c563cee.EmployeeManagingEmployee"
+					FromRole="FromRole_EmployeeManagingEmployee" ToRole="ToRole_EmployeeManagingEmployee"/>
+            </EntityType>
+            <Association Name="EmployeeReportingtoEmployee">
+                <End Type="adda48423258013e0c563cee.Employee" Multiplicity="1" Role="FromRole_EmployeeReportingtoEmployee"/>
+                <End Type="adda48423258013e0c563cee.Employee" Multiplicity="1" Role="ToRole_EmployeeReportingtoEmployee"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_EmployeeReportingtoEmployee">
+                        <PropertyRef Name="___FK_20ea4e2a5d5a67ec0bea638a"/>
+                    </Principal>
+                    <Dependent Role="ToRole_EmployeeReportingtoEmployee">
+                        <PropertyRef Name="ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="EmployeeManagingEmployee">
+                <End Type="adda48423258013e0c563cee.Employee" Multiplicity="1" Role="FromRole_EmployeeManagingEmployee"/>
+                <End Type="adda48423258013e0c563cee.Employee" Multiplicity="*" Role="ToRole_EmployeeManagingEmployee"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_EmployeeManagingEmployee">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_EmployeeManagingEmployee">
+                        <PropertyRef Name="___FK_4dd39a60fbe5b1260bea638a"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

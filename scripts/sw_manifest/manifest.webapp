@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "name": "Medicare",
+  "launch_path": "/webapp/index.html",
+  "description": "Medical Assist",
+  "developer": {
+    "name": "Silviu Boldeanu"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  },
+  "locales": {
+    "en": {
+      "name": "Medicare",
+      "description": "Medical Assist"
+    }
+  }
+}

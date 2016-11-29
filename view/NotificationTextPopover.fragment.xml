@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Popover
+		id="addNotificationTextPopover"
+		title="{Name}"
+		placement="Left">
+		<content>
+			<Input
+				id="notificationTextInput"
+				type="Text"
+				placeholder="Enter Notification Text ..."
+				valueStateText="Text must not be empty!"
+				change="onNotificationInputEnter"
+			 />		
+		</content>
+		<endButton>
+				<Button id="addNotificationTextBtn" text="Send Notification" press="onSendNotification" />
+		</endButton>
+	</Popover>
+</core:FragmentDefinition>

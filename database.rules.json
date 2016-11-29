@@ -1,0 +1,24 @@
+{
+  "rules": {
+    "messages": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "todos": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "endpoints": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "notes": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "roles": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Medicare",
+  "short_name": "Medicare",
+  "start_url": "/webapp/index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "gcm_sender_id": "468096361586"
+}

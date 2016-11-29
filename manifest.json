@@ -1,0 +1,208 @@
+{
+  "_version": "1.3.0",
+  "sap.app": {
+    "_version": "1.3.0",
+    "id": "medicare",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/here/goes/your/serviceurl/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0",
+          "localUri": "localService/metadata.xml"
+        }
+      }
+    },
+    "sourceTemplate": {
+      "id": "sap.ui.ui5-template-plugin.2masterdetail",
+      "version": "1.36.2"
+    }
+  },
+  "config": {
+          "fullWidth" : true
+   },
+  "sap.ui": {
+    "_version": "1.3.0",
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://detail-view",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
+    "supportedThemes": ["sap_hcb", "sap_bluecrystal"]
+  },
+  "sap.ui5": {
+    "_version": "1.2.0",
+    "rootView": {
+      "viewName": "medicare.view.SplashLogin",
+      "type": "XML",
+      "id": "splash"
+    },
+    "dependencies": {
+      "minUI5Version": "1.36.0",
+      "libs": {
+        "sap.ui.core": {
+          "minVersion": "1.36.0"
+        },
+        "sap.m": {
+          "minVersion": "1.36.0"
+        }
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "medicare.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "settings": {
+          "metadataUrlParams": {
+            "sap-documentation": "heading"
+          }
+        }
+      }
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "medicare.view",
+        	"bypassed": {
+					"target": [
+						"master",
+						"notFound"
+					]
+				},
+        "async": true
+      },
+      "routes":
+      [
+      {
+        "pattern": "",
+        "name" : "overview",
+        "view" : "Overview",
+        "targetAggregation": "pages",
+        "viewPath": "medicare.view",
+        "targetControl": "customFioriContent"
+      },
+        {
+          "pattern": "split",
+          "name" : "App",
+          "view" : "App",
+          "viewPath": "medicare.view",
+          "targetAggregation": "pages",
+          "targetControl": "customFioriContent",
+          "subroutes" : [{
+            "pattern": "master",
+            "name" : "master",
+            "view" : "Master",
+            "targetAggregation" : "masterPages",
+            "preservePageInSplitContainer" : true,
+            "viewPath": "medicare.view",
+            "targetControl": "idAppControl",
+            "subroutes" : [
+              {
+                "pattern" : "items/{objectId}",
+                "view" : "Detail",
+                "name" : "Detail",
+                "viewPath": "medicare.view",
+                "targetAggregation": "detailPages"
+              },
+              {
+                "pattern" : "NoteTile/{objectId}/noteKey/{noteKey}/noteTitle{noteTitle}",
+                "view" : "NoteTile",
+                "name" : "NoteTile",
+                "viewPath": "medicare.view",
+                "targetAggregation": "detailPages"
+              },
+              {
+       		   "pattern": "DetailObjectNotFound",
+          		"view": "DetailObjectNotFound",
+          		"name": "DetailObjectNotFound",
+          		"viewPath": "medicare.view",
+                "targetAggregation": "detailPages"
+              }
+            ]
+          }]
+        },
+        {
+          "pattern": "ClientApp",
+          "name" : "ClientApp",
+          "view" : "ClientApp",
+          "viewPath": "medicare.view",
+          "targetAggregation": "pages",
+          "targetControl": "customFioriContent",
+          "subroutes" : [
+            {
+              "pattern": "ClientMaster",
+              "name" : "clientMaster",
+              "view" : "ClientMaster",
+              "targetAggregation" : "masterPages",
+              "preservePageInSplitContainer" : true,
+              "viewPath": "medicare.view",
+              "targetControl": "idClientAppControl",
+              "subroutes" : [
+                {
+                  "pattern" : "ClientNoteTile/{objectId}/noteKey/{noteKey}/noteTitle{noteTitle}",
+                  "view" : "NoteTile",
+                  "name" : "ClientNoteTile",
+                  "viewPath": "medicare.view",
+                  "targetAggregation": "detailPages"
+                },
+	             {
+	       		   "pattern": "ClientDetailNoObjectsAvailable",
+	          		"view": "DetailNoObjectsAvailable",
+	          		"name": "DetailNoObjectsAvailable",
+	          		"viewPath": "medicare.view",
+	                "targetAggregation": "detailPages"
+	              }
+              ]
+            }]
+        }
+      ],
+      "targets": {
+        "detailObjectNotFound": {
+          "controlId": "idAppControl",
+          "viewName": "DetailObjectNotFound",
+          "viewId": "detailObjectNotFound",
+          "viewLevel": 2
+        },
+        "detailNoObjectsAvailable": {
+          "controlId": "idAppControl",
+          "viewName": "DetailNoObjectsAvailable",
+          "viewId": "detailNoObjectsAvailable",
+          "viewLevel": 2
+        },
+        "notFound": {
+          "controlId": "idAppControl",
+          "viewName": "NotFound",
+          "viewId": "notFound",
+          "viewLevel": 2
+        }
+      }
+    }
+  }
+}
+

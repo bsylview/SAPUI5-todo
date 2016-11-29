@@ -1,0 +1,44 @@
+<core:View 
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m" 
+		controllerName="medicare.controller.Overview">
+	<Page 
+		id="page12" 
+		showFooter="false" 
+		title=""
+		showNavButton="false" 
+		backgroundDesign="Solid" 
+		enableScrolling="false" 
+		showSubHeader="false" 
+		showHeader="false">
+		<content>
+		    <HBox width="100%" 
+		    	id="overviewHBoxId" 
+		    	alignContent="Center" 
+		    	alignItems="Center" 
+		    	justifyContent="Center" 
+		    	height="100%">
+		        <items>
+		            <VBox  
+		            	width="85%" 
+		            	direction="Column" 
+		            	id="overviewVBoxId" 
+		            	alignContent="Center" 
+		            	alignItems="Center" 
+		            	justifyContent="Center" 
+		            	height="100%">
+					    <items>
+					        <Image id="__image0" src="../images/appleswirl-icon.png"/>
+					           <HBox width="100%" height="10%" id="__hbox0"/>
+					       	<Button width="100%" id="__button0" icon="sap-icon://log" type="Emphasized" text="Sign in with Google" press="onLogIn"/>
+			            <HBox width="100%" height="30%" id="__hbox1"/>
+			           </items>
+			           
+    				</VBox>
+    				
+				</items>
+		    </HBox>
+		</content>
+	</Page>
+
+</core:View>

@@ -1,0 +1,10 @@
+<mvc:View
+        controllerName="medicare.controller.SplashLogin"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns="sap.m"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+>
+    <App id="customFioriContent">
+
+    </App>
+</mvc:View>

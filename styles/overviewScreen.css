@@ -1,0 +1,11 @@
+.overviewScreenVBox {
+  	 background-image: url('../images/bg.png');  
+  
+}
+.overviewScreenHBox {
+  	 	 background-image: url('../images/big_grey.png');  
+}
+
+.logInBtn {
+  	 background-image: url('../images/sign_in_button_google.png');  
+}

@@ -1,0 +1,28 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+    <Dialog
+          xmlns= "sap.ui.commons"
+          xmlns:b="sap.suite.ui.commons" 
+          xmlns:m="sap.m"
+          stretch="true"
+          xmlns:form="sap.ui.layout.form"
+          showHeader="true"
+          title="Settings">  
+      <buttons>  
+          <Button id="btnInFragment" text="OK" press="onSettingsOKPress"/>  
+      </buttons>       
+     	 <content>  
+     	 	 		<m:VBox direction="Row" width="100%" id="__vbox0" alignItems="Center" justifyContent="Center" alignContent="Center"> 
+					    <m:items> 
+					        <m:Label text="Allow notifications:"/> 
+					        <m:Switch id="notificationsSwitch" type="AcceptReject" state="{/receiveNotificationsState}" change="onSwitch">
+								<m:layoutData>
+								    <m:FlexItemData growFactor="1"/>
+								</m:layoutData>
+							</m:Switch> 
+					   </m:items> 
+					</m:VBox>					
+    	</content>  
+   	 </Dialog>    
+</core:FragmentDefinition> 
